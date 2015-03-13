@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -62,6 +63,7 @@ public class DatabaseAccessChromium {
 			s2 = con.createStatement();
 		} catch (SQLException e) 
 		{
+			con.close();
 			e.printStackTrace();
 			return false;
 		}
@@ -111,7 +113,11 @@ public class DatabaseAccessChromium {
 		ArrayList<String> developers2= new ArrayList<String>();
 		ArrayList<String> developers3= new ArrayList<String>();
 		ArrayList<Integer> edges     = new ArrayList<Integer>();
-		
+		String ownerList1=ownerList.replaceAll("'", "");
+
+		String[] ownerListExcel=ownerList1.split(",");
+
+		ArrayList<String> excelList=new ArrayList<String>(Arrays.asList(ownerListExcel));
 		
 		System.out.println("");
 		System.out.println("Calculating the Total Number of Distinct Developers...");
@@ -119,15 +125,15 @@ public class DatabaseAccessChromium {
 		if(ownerList!=null)
 		{
 			qry="select distinct sender from comment where sender in ("+ownerList+") and date>='"+startDate+ "' and date<='"+endDate+"'";
-			System.out.println(qry);
+
 		}
 		else
 		{
 			 qry="select distinct sender from comment where  date>='"+startDate+ "' and date<='"+endDate+"'";	
-			 System.out.println("manish"+qry);
+			// System.out.println("manish"+qry);
 		}
-				
-		System.out.println(qry);
+	
+
 		rs = s.executeQuery(qry);
 			
 		while(rs.next())
@@ -135,7 +141,8 @@ public class DatabaseAccessChromium {
 			developers.add(rs.getString("sender"));
 		}
 		
-		num=developers.size();
+		excelList.removeAll(developers);
+		
 	    if(ownerList!=null)
 	    	qry="select a.sender,b.recipients from comment a , temp_comment b where a.id=b.id and a.sender!=b.recipients and a.sender in ("+ownerList+") and a.date>='"+startDate+"' and date<='"+endDate+"' and b.recipients in ("+ownerList+")group by a.sender,b.recipients";
 	    else
@@ -149,9 +156,12 @@ public class DatabaseAccessChromium {
 			developers3.add(rs.getString("recipients"));
 			edges.add(1);
 		}
+		excelList.removeAll(developers2);
+		developers.addAll(excelList);
+		num=developers.size();
 		
 		fileContent = nb.networkBuilder(developers, developers2, developers3, edges, num);
-		
+	
 	}
 	
 }
