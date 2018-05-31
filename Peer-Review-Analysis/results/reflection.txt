@@ -1,0 +1,49 @@
+I believe that from this data we can get a better understanding on the following :
+
+1. A quartile analysis can be performed on the days between date of creation and modification of the reviews. I believe this would allow us to pin point the reviews which are taking too long to close. These reviews can then be analysed separately to determine the factors which are causing the delay.
+
+2. A count of the no of reviews owner by an individual would show how active a person is. This along with the no of approvals on their reviews can be used to calculate the percentage of reviews that are approved. This would help us to determine an individuals worth. The same can also be done for the comments made on a review.
+
+3. The number of days between date of creation and modification of a review and number of comments made by a person can be used to judge if a greater activity of a particular person guarantees shorter closing times of the review.
+
+4. The number of reviews owner by an individual can be compared with the mean closing time of all the reviews owned by them .
+ 
+5. The results of the third and the fourth analysis can be used to determined a range ( i.e maximum number of reviews and comments a person owns) within which closing of reviews take place most effectively.
+
+24/6/2017
+
+From the boxplots , my observations are as follows:
+1. Comments:
+	Boxplot:
+	Most of the issues have less than 20 comments as all four quartiles can be accommodated in a narrow region at the bottom of the plot
+	
+	Histogram:
+	Most of the issues have less than 20 comments as there is only one significantly visible bar in the range of 0-50
+ 
+2. NoOfCommenters:
+	Boxplot:
+	The first quartile ranges from 1-2 commenters, second quartile consists of issues with exactly 2 commenters  , the third quartile ranges from 2-3 and the fourth from 3-4
+ 
+	Histogram:
+	A little over 40000 issues have 0-1 commenters, 100000 issues have 1-2 commenters, a little over 40000 issues have 2-3 commenters, over 10000 issues have 3-4 commenters and less than 10000 issues have more than 4 commenters.
+ 
+3. Approval:
+	Boxlpot:
+	The second quartile ranges from 0-1 approvals and the fourth quartile ranges form about 2-3. The third quartile consists of issues with exactly one comment and the first quartile consists of issues with no comments.
+ 
+	Histogram:
+	Over 150000 issues have 0-1 approvals, 25000 have 1-2 approvals . The number of issues with approvals greater than 2 is less than 25000.
+	
+4. no_of_days
+	Boxplot:
+	The boxplot on no_of_days shows that 50% of the reviews take less than 100 days to close . The third quartile extends upto 400 and the fourth quartile extends upto 1000.
+ 
+	Histogram:
+	The gap between the date of creation and modification ranges between 1-50 for over 100000 issues, and is a little less than 10000 for  all the other class intervals up to 600. After this the number slowly reduced . And very few issues have the gap between the date of creation and modification more than 1000 days.
+ 
+5. owners:
+	Boxplot:
+	The first quartile ranges from 0 to 250 , the second quartile ranges from about 250-400 , the third from 400-900 and the fourth quartile ranges from 900 - 1900
+ 
+	Histogram:
+	0-200 owners own 50000 issues, 200-400 own 45000 issues, 400-600 a little less than 35000 issues, 600-800 own 20000 issues, 800-1000 own a little less than 15000 issues, 1000-1200 own 15000 issues and 1200 -2600 own less than 10000 issues.
