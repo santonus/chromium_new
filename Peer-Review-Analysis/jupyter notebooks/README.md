@@ -1,4 +1,4 @@
-#Prerequisites
+# Prerequisites
 
 The first step towards generating the peer-review social network is to obtain the necessary data from the mysql datadump. 
 1. Navigate to the directory /chromium_new/Peer-Review-Analysis/data/Obtaindata
@@ -13,7 +13,7 @@ Personreview.csv contains details on the indivdual comments made on easch issue.
 1. date 
 1. approval
 
-Personreview.csv contains details on the indivdual comments made on easch issue. The column obtained will be:
+result.csv contains details on the indivdual comments made on easch issue. The column obtained will be:
 1. A: number of comments on the review, 
 1. B: number of unique person(s) who have posted at least one comment on the review, 
 1. C: number of approvals on the review, 
@@ -47,5 +47,5 @@ Personreview.csv contains details on the indivdual comments made on easch issue.
 
 ```pip3 install igraph```
 
-
+Follow the instructions in the python notebook `network generation.ipynb` to generate the network graph
 
