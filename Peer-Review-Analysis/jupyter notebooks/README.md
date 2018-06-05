@@ -17,6 +17,6 @@
 
 ```conda install -c conda-forge python-igraph```
 
-** Pip Install **
+**Pip Install**
 
 ```pip3 install igraph```
